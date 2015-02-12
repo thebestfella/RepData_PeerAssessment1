@@ -32,16 +32,6 @@ plot1_data<-tapply(data$steps,data$date,sum)
 plot1_data<-plot1_data[!is.na(plot1_data)]
 ```
 
-Calculate `mean`.
-```{r echo=FALSE}
-mean(plot1_data);
-```
-
-Calculate `median`.
-```{r echo=FALSE}
-median(plot1_data)
-```
-
 Draw histogram to draw sum of `steps`. Add red vertical line to show "mean", blue line to show "median".
 ```{r}
 hist(plot1_data,
@@ -50,6 +40,16 @@ hist(plot1_data,
 abline(v=mean(plot1_data),col="red",lwd=6,lty=6)
 abline(v=median(plot1_data),col="blue",lwd=6,lty=3)
 legend("topright", c("mean", "median"), fill=c("red", "blue"))
+```
+
+Calculate `mean` of steps taken each day.
+```{r echo=FALSE}
+mean(plot1_data);
+```
+
+Calculate `median` of steps taken each day.
+```{r echo=FALSE}
+median(plot1_data)
 ```
 
 - - - - - - - 
@@ -118,7 +118,7 @@ Calculate `median`.
 median(plot3_data)
 ```
 
-Make a histogram of the `total number of steps` taken each day and Calculate and report the `mean` and `median` total number of steps taken per day. 
+Draw histogram of the `total number of steps` taken each day after missing values being replaced. 
 ```{r}
 hist(plot3_data,
      xlab="total number of steps taken each day",
@@ -134,7 +134,7 @@ Note the `mean from this plot` is same as `mean from the previous one`, it's bec
 - - - - - - - 
 - - - - - - - 
 
-## IV. Imputing missing values
+## V. Imputing missing values
 
 Generate a weekday list from the original dataset.
 ```{r}
